@@ -1,0 +1,49 @@
+{
+  "displayName": "Paypal Gateway",
+  "defaultWidth": 160,
+  "defaultHeight": 24,
+  "components": "./index.js",
+  "icon": "./example-thumbnail.png",
+  "props": [
+    {
+      "name": "client_id",
+      "displayName": "Client ID",
+      "type": "text"
+    },
+    {
+      "name": "currency",
+      "displayName": "Currency Type",
+      "type": "text",
+      "control": {
+        "type": "menu",
+        "options": [
+          { "label": "USD", "value": "USD" },
+          { "label": "AUD", "value": "AUD" },
+          { "label": "BRL", "value": "brl" },
+          { "label": "CAD", "value": "cad" },
+          { "label": "CHF", "value": "chf" },
+          { "label": "CNY", "value": "cny" },
+          { "label": "CZK", "value": "czk" },
+          { "label": "DKK", "value": "dkk" },
+          { "label": "EUR", "value": "eur" },
+          { "label": "GBP", "value": "gbp" },
+          { "label": "HKD", "value": "hkd" },
+          { "label": "HUF", "value": "huf" },
+          { "label": "ILS", "value": "ils" },
+          { "label": "JPY", "value": "jpy" },
+          { "label": "MXN", "value": "mxn" },
+          { "label": "MYR", "value": "myr" },
+          { "label": "NOK", "value": "nok" },
+          { "label": "NZD", "value": "nzd" },
+          { "label": "PHP", "value": "php" },
+          { "label": "PLN", "value": "pln" },
+          { "label": "RUB", "value": "rub" },
+          { "label": "SEK", "value": "sek" },
+          { "label": "SGD", "value": "sgd" },
+          { "label": "THB", "value": "thb" },
+          { "label": "TWD", "value": "twd" }
+        ]
+      }
+    }
+  ]
+}
