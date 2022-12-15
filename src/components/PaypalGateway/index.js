@@ -1,12 +1,17 @@
 import React from "react";
 import { Text, View, StyleSheet, TextInput, Button, Alert } from "react-native";
-import { useState } from "react";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useState, useEffect } from "react";
+import {
+  PayPalScriptProvider,
+  PayPalButtons,
+  usePayPalScriptReducer,
+} from "@paypal/react-paypal-js";
 const PaypalGateway = (props) => {
-  const [text, onChangeText] = useState("");
-  const [number, onChangeNumber] = useState(null);
-
   console.log(props);
+
+  const amount = "2";
+  const currency = `${props.currency}`;
+  const style = { layout: "vertical" };
 
   return (
     <>
@@ -14,33 +19,35 @@ const PaypalGateway = (props) => {
         <PayPalScriptProvider
           options={{
             "client-id": `${props.client_id}`,
+            components: "buttons",
+            currency: `${props.currency}`,
           }}
         >
           <PayPalButtons
-            style={{ layout: "horizontal" }}
+            style={style}
+            disabled={false}
+            forceReRender={[amount, currency, style]}
+            fundingSource={undefined}
             createOrder={(data, actions) => {
               return actions.order
                 .create({
                   purchase_units: [
                     {
                       amount: {
-                        currency_code: `EUR`,
-                        value: "0.2",
+                        currency_code: currency,
+                        value: amount,
                       },
                     },
                   ],
                 })
                 .then((orderId) => {
-                  console.log(orderId, "ORDER ID");
+                  // Your code here after create the order
                   return orderId;
                 });
             }}
-            onApprove={(data, actions) => {
-              return actions.order.capture().then(function (details) {
-                console.log(details);
-                alert(
-                  "Transaction completed by " + details.payer.name.given_name
-                );
+            onApprove={function (data, actions) {
+              return actions.order.capture().then(function () {
+                // Your code here after capture the order
               });
             }}
           />

@@ -20,7 +20,7 @@
           { "label": "USD", "value": "USD" },
           { "label": "AUD", "value": "AUD" },
           { "label": "BRL", "value": "brl" },
-          { "label": "CAD", "value": "cad" },
+          { "label": "CAD", "value": "CAD" },
           { "label": "CHF", "value": "chf" },
           { "label": "CNY", "value": "cny" },
           { "label": "CZK", "value": "czk" },
