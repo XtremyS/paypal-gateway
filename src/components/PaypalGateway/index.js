@@ -3,7 +3,12 @@ import { Text, View, StyleSheet, TextInput, Button, Alert } from "react-native";
 import { WebView } from "react-native";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 const PaypalGateway = (props) => {
-  // console.log(props);
+  console.log(props);
+
+  if (props.client_id === "") {
+    // alert("Please enter Client ID");
+  }
+
   const amount = `${props.amount}`;
   const currency = `${props.currency}`;
   const style = { layout: "vertical" };
@@ -11,6 +16,12 @@ const PaypalGateway = (props) => {
   return (
     <>
       <View>
+        {props.client_id ? (
+          ""
+        ) : (
+          <h4 style={{ color: "red" }}>**Please Enter Client ID**</h4>
+        )}
+
         <PayPalScriptProvider
           options={{
             "client-id": `${props.client_id}`,

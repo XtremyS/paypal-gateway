@@ -6,7 +6,7 @@
       "manifest": "./src/components/PaypalGateway/manifest.json"
     }
   ],
-  "author": "",
+  "author": "Wadalo",
   "description": "",
-  "logo": "./example-logo.png"
+  "logo": "./paypal-thumbnail.png"
 }

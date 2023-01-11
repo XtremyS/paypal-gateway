@@ -1,19 +1,21 @@
 {
-  "displayName": "Business Account Details",
+  "displayName": "Paypal Payment Gateway",
   "defaultWidth": 160,
   "defaultHeight": 24,
   "components": "./index.js",
-  "icon": "./example-thumbnail.png",
+  "icon": "./paypal-thumbnail.png",
   "props": [
     {
       "name": "client_id",
       "displayName": "Client ID",
-      "type": "text"
+      "type": "text",
+      "default": null
     },
     {
       "name": "amount",
       "displayName": "Amount",
-      "type": "number"
+      "type": "number",
+      "default": 0
     },
     {
       "name": "currency",
