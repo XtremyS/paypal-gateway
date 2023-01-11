@@ -1,5 +1,5 @@
 {
-  "displayName": "Paypal Gateway",
+  "displayName": "Business Account Details",
   "defaultWidth": 160,
   "defaultHeight": 24,
   "components": "./index.js",
@@ -11,6 +11,11 @@
       "type": "text"
     },
     {
+      "name": "amount",
+      "displayName": "Amount",
+      "type": "number"
+    },
+    {
       "name": "currency",
       "displayName": "Currency Type",
       "type": "text",
@@ -19,31 +24,44 @@
         "options": [
           { "label": "USD", "value": "USD" },
           { "label": "AUD", "value": "AUD" },
-          { "label": "BRL", "value": "brl" },
+          { "label": "BRL", "value": "BRL" },
           { "label": "CAD", "value": "CAD" },
-          { "label": "CHF", "value": "chf" },
-          { "label": "CNY", "value": "cny" },
-          { "label": "CZK", "value": "czk" },
-          { "label": "DKK", "value": "dkk" },
-          { "label": "EUR", "value": "eur" },
-          { "label": "GBP", "value": "gbp" },
-          { "label": "HKD", "value": "hkd" },
-          { "label": "HUF", "value": "huf" },
-          { "label": "ILS", "value": "ils" },
-          { "label": "JPY", "value": "jpy" },
-          { "label": "MXN", "value": "mxn" },
-          { "label": "MYR", "value": "myr" },
-          { "label": "NOK", "value": "nok" },
-          { "label": "NZD", "value": "nzd" },
-          { "label": "PHP", "value": "php" },
-          { "label": "PLN", "value": "pln" },
-          { "label": "RUB", "value": "rub" },
-          { "label": "SEK", "value": "sek" },
-          { "label": "SGD", "value": "sgd" },
-          { "label": "THB", "value": "thb" },
-          { "label": "TWD", "value": "twd" }
+          { "label": "CHF", "value": "CHF" },
+          { "label": "CNY", "value": "CNY" },
+          { "label": "CZK", "value": "CZK" },
+          { "label": "DKK", "value": "DKK" },
+          { "label": "EUR", "value": "EUR" },
+          { "label": "GBP", "value": "GBP" },
+          { "label": "HKD", "value": "HKD" },
+          { "label": "HUF", "value": "HUF" },
+          { "label": "ILS", "value": "ILS" },
+          { "label": "JPY", "value": "JPY" },
+          { "label": "MXN", "value": "MXN" },
+          { "label": "MYR", "value": "MYR" },
+          { "label": "NOK", "value": "NOK" },
+          { "label": "NZD", "value": "NZD" },
+          { "label": "PHP", "value": "PHP" },
+          { "label": "PLN", "value": "PLN" },
+          { "label": "RUB", "value": "RUB" },
+          { "label": "SEK", "value": "SEK" },
+          { "label": "SGD", "value": "SGD" },
+          { "label": "THB", "value": "THB" },
+          { "label": "TWD", "value": "TWD" }
         ]
       }
+    }
+  ],
+  "childComponents": [
+    {
+      "name": "actions",
+      "displayName": "On Payment Success",
+      "props": [
+        {
+          "name": "useActions",
+          "displayName": "Actions",
+          "type": "action"
+        }
+      ]
     }
   ]
 }

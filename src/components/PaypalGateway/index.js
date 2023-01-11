@@ -1,15 +1,10 @@
 import React from "react";
 import { Text, View, StyleSheet, TextInput, Button, Alert } from "react-native";
-import { useState, useEffect } from "react";
-import {
-  PayPalScriptProvider,
-  PayPalButtons,
-  usePayPalScriptReducer,
-} from "@paypal/react-paypal-js";
+import { WebView } from "react-native";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 const PaypalGateway = (props) => {
-  console.log(props);
-
-  const amount = "2";
+  // console.log(props);
+  const amount = `${props.amount}`;
   const currency = `${props.currency}`;
   const style = { layout: "vertical" };
 
@@ -41,13 +36,18 @@ const PaypalGateway = (props) => {
                   ],
                 })
                 .then((orderId) => {
-                  // Your code here after create the order
                   return orderId;
+                })
+                .catch((err) => {
+                  console.log(err);
                 });
             }}
-            onApprove={function (data, actions) {
-              return actions.order.capture().then(function () {
-                // Your code here after capture the order
+            onApprove={async function (data, actions) {
+              return actions.order.capture().then(function (details) {
+                if (details.status === "COMPLETED") {
+                  props.actions.useActions();
+                  console.log(details, "DETAILS");
+                }
               });
             }}
           />
